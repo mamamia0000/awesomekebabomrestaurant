@@ -1,0 +1,639 @@
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Kebabom Restaurant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #d16d6d 0%, #d18b6d 100%);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            margin: 20px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f0e68c; /* Light yellow */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        section {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #d16d6d; /* Soft red */
+            border-bottom: 2px solid #d16d6d;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+        }
+
+        .accordion {
+            margin: 10px 0;
+        }
+
+        .accordion-button {
+            background-color: #f1f1f1;
+            color: #444;
+            cursor: pointer;
+            padding: 15px;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 16px;
+            width: 100%;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .accordion-button:hover {
+            background-color: #ddd;
+            transform: scale(1.02);
+        }
+
+        .accordion-content {
+            padding: 15px;
+            display: none; /* Hidden by default */
+            overflow: hidden;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .menu-item {
+            text-align: center; /* Center-align content */
+            margin-bottom: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.03);
+        }
+
+        .menu-item img {
+            width: 300px; /* Set width to 300px for responsiveness */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 3px;
+        }
+
+        .menu-item strong {
+            font-size: 24px; /* Make price larger */
+            display: block; /* Ensure price is on a new line */
+            margin: 10px 0; /* Add some space above and below */
+            color: #d16d6d; /* Soft red */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: linear-gradient(135deg, #d16d6d 0%, #d18b6d 100%);
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form input, form select, form textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border 0.3s;
+        }
+
+        form input:focus, form select:focus, form textarea:focus {
+            border-color: #d16d6d; /* Soft red */
+            outline: none;
+        }
+
+        form button {
+            background-color: #d16d6d; /* Soft red */
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #b05050; /* Darker soft red */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Awesome Kebabom Restaurant</h1>
+    <nav>
+        <ul>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#order">Order Food</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <section id="menu">
+        <h2>Our Menu</h2>
+
+        <div class="accordion">
+            <button class="accordion-button">Margherita Pizza</button>
+            <div class="accordion-content">
+                <div class="menu-item">
+                    <img src="https://i.pinimg.com/564x/9d/2f/62/9d2f62b46c1a23bd26df0d455c3a388f.jpg" alt="Margherita Pizza">
+                    <strong>RM12</strong>
+                    <p>A classic pizza with fresh tomatoes, mozzarella cheese, and basil.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-button">Pasta Carbonara</button>
+            <div class="accordion-content">
+                <div class="menu-item">
+                    <img src="https://i.pinimg.com/564x/45/a7/0d/45a70d30bb15e25a6f9611e222a3d6d1.jpg" alt="Pasta Carbonara">
+                    <strong>RM15</strong>
+                    <p>Creamy pasta with pancetta, egg, and Parmesan cheese.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-button">Caesar Salad</button>
+            <div class="accordion-content">
+                <div class="menu-item">
+                    <img src="https://i.pinimg.com/564x/2b/76/21/2b7621769b5076421937b37856188ed3.jpg" alt="Caesar Salad">
+                    <strong>RM10</strong>
+                    <p>Crisp romaine lettuce with Caesar dressing, croutons, and Parmesan cheese.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-button">Chocolate Cake</button>
+            <div class="accordion-content">
+                <div class="menu-item">
+                    <img src="https://i.pinimg.com/564x/fd/49/15/fd49150a45f56427ddc5da1da08861f4.jpg" alt="Chocolate Cake">
+                    <strong>RM7</strong>
+                    <p>Rich and moist chocolate cake with a creamy chocolate frosting.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-button">Spaghetti Bolognese</button>
+            <div class="accordion-content">
+                <div class="menu-item">
+                    <img src="https://i.pinimg.com/736x/00/22/b9/0022b9ae4cff08e1cdfd6eecc739107a.jpg" alt="Spaghetti Bolognese">
+                    <strong>RM14</strong>
+                   Here's the continuation and enhancement of your restaurant website, incorporating more decorative elements and improved styling:
+
+```html
+                    <p>Traditional spaghetti with a hearty meat sauce and Parmesan cheese.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-button">Marinara Seafood Pasta</button>
+            <div class="accordion-content">
+                <div class="menu-item">
+                    <img src="https://i.pinimg.com/564x/86/ac/e9/86ace96af60a1b461a5c453dfbee0f86.jpg" alt="Marinara Seafood Pasta">
+                    <strong>RM18</strong>
+                    <p>Pasta with a rich tomato sauce and a mix of fresh seafood.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-button">BBQ Chicken Wings</button>
+            <div class="accordion-content">
+                <div class="menu-item">
+                    <img src="https://i.pinimg.com/564x/b7/4f/02/b74f02731c5e4b39eb40d4bb0845e19e.jpg" alt="BBQ Chicken Wings">
+                    <strong>RM9</strong>
+                    <p>Crispy chicken wings tossed in BBQ sauce, served with celery and blue cheese.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-button">Tiramisu</button>
+            <div class="accordion-content">
+                <div class="menu-item">
+                    <img src="https://i.pinimg.com/564x/9b/3c/93/9b3c939aab30f7f71ee8c59eb57ba39c.jpg" alt="Tiramisu">
+                    <strong>RM6</strong>
+                    <p>Classic Italian dessert made with coffee-soaked ladyfingers and mascarpone cheese.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-button">Vegetable Stir-Fry</button>
+            <div class="accordion-content">
+                <div class="menu-item">
+                    <img src="https://i.pinimg.com/736x/bc/ec/8c/bcec8c25ce2ef677397cbdf956ab6ec2.jpg" alt="Vegetable Stir-Fry">
+                    <strong>RM11</strong>
+                    <p>A mix of fresh vegetables stir-fried in a savory sauce, served with rice.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-button">Cheeseburger</button>
+            <div class="accordion-content">
+                <div class="menu-item">
+                    <img src="https://i.pinimg.com/564x/07/60/39/076039c38e4497281530568bdd86fa4e.jpg" alt="Cheeseburger">
+                    <strong>RM13</strong>
+                    <p>Juicy beef patty with melted cheese, lettuce, tomato, and pickles on a bun.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-button">Greek Salad</button>
+            <div class="accordion-content">
+                <div class="menu-item">
+                    <img src="https://i.pinimg.com/736x/d1/e2/a9/d1e2a9c45ae8746c20b326c49414f663.jpg" alt="Greek Salad">
+                    <strong>RM8</strong>
+                    <p>Fresh vegetables topped with feta cheese, olives, and a drizzle of olive oil.</p>
+                </div>
+            </div>
+        </div>
+        <h2>Drinks</h2>
+
+    <!-- Soft Drinks -->
+    <div class="accordion">
+        <button class="accordion-button">Coca-Cola</button>
+        <div class="accordion-content">
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/564x/d9/90/b4/d990b4e3fafb7073f2ab7241e48aea0b.jpg" alt="Coca-Cola">
+                <strong>RM3</strong>
+                <p>A refreshing can of ice-cold Coca-Cola.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Juices -->
+    <div class="accordion">
+        <button class="accordion-button">Fresh Orange Juice</button>
+        <div class="accordion-content">
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/564x/9f/0a/00/9f0a00fae108864320c8a44765053003.jpg" alt="Orange Juice">
+                <strong>RM5</strong>
+                <p>Freshly squeezed orange juice, served cold.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <button class="accordion-button">Lemonade</button>
+        <div class="accordion-content">
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/564x/99/2b/a6/992ba606907bad9f112faf07ee13551b.jpg" alt="Lemonade">
+                <strong>RM3</strong>
+                <p>Homemade lemonade, sweet and refreshing.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coffee -->
+    <div class="accordion">
+        <button class="accordion-button">Latte</button>
+        <div class="accordion-content">
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/236x/e3/83/f9/e383f9aba12fcabbffd116323690fb57.jpg" alt="Latte">
+                <strong>RM4</strong>
+                <p>Creamy latte made with espresso and steamed milk.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <button class="accordion-button">Hot Chocolate</button>
+        <div class="accordion-content">
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/564x/22/8b/72/228b72a03cb98c19063193cf0188a6a3.jpg" alt="Hot Chocolate">
+                <strong>RM4</strong>
+                <p>Warm and rich hot chocolate topped with whipped cream.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Teas -->
+    <div class="accordion">
+        <button class="accordion-button">Iced Tea</button>
+        <div class="accordion-content">
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/564x/64/bb/bc/64bbbc45a302b646abee022c00ca0c41.jpg" alt="Iced Tea">
+                <strong>RM3</strong>
+                <p>Refreshing iced tea, perfect for a hot day.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <button class="accordion-button">Peach Iced Tea</button>
+        <div class="accordion-content">
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/564x/11/76/68/1176682d022e3e8ccb73a9605b66ba74.jpg" alt="Peach Iced Tea">
+                <strong>RM4</strong>
+                <p>Sweet peach iced tea to quench your thirst.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Smoothies -->
+    <div class="accordion">
+        <button class="accordion-button">Mango Smoothie</button>
+        <div class="accordion-content">
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/564x/4a/8e/f5/4a8ef57aa8f0aec2e78efef70b7679e0.jpg" alt="Mango Smoothie">
+                <strong>RM6</strong>
+                <p>A creamy mango smoothie made with fresh mangoes.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <button class="accordion-button">Strawberry Milkshake</button>
+        <div class="accordion-content">
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/564x/bd/de/69/bdde6982203758aa0f92621e5d9c3986.jpg" alt="Strawberry Milkshake">
+                <strong>RM5</strong>
+                <p>Delicious strawberry milkshake made with fresh strawberries.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Others -->
+    <div class="accordion">
+        <button class="accordion-button">Mineral Water</button>
+        <div class="accordion-content">
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/564x/12/1f/2f/121f2fe1e20e4c93c97e86f77004f5e6.jpg" alt="Mineral Water">
+                <strong>RM2</strong>
+                <p>Bottled mineral water for refreshment.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <button class="accordion-button">Mint Mojito</button>
+        <div class="accordion-content">
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/736x/c1/c4/c1/c1c4c1385f9d625e840f6d213c5d9d66.jpg" alt="Mint Mojito">
+                <strong>RM6</strong>
+                <p>A refreshing mint mojito with lime and fresh mint leaves.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion">
+        <button class="accordion-button">Fruit Punch</button>
+        <div class="accordion-content">
+            <div class="menu-item">
+                <img src="https://i.pinimg.com/564x/16/12/f2/1612f2040b20f6971dfc0730fbd3cc9b.jpg" alt="Fruit Punch">
+                <strong>RM5</strong>
+                <p>A tropical fruit punch with a mix of juicy fruits.</p>
+            </div>
+        </div>
+    </div>
+    </section>
+</div>
+    </section>
+
+    <section id="order">
+       <h2>Order Your Food</h2>
+<form action="https://formspree.io/f/mldeegda" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <select name="food_item" required>
+        <option value="">Select Menu Item</option>
+        <option value="margherita">Margherita Pizza - RM12</option>
+        <option value="carbonara">Pasta Carbonara - RM15</option>
+        <option value="caesar">Caesar Salad - RM10</option>
+        <option value="chocolate_cake">Chocolate Cake - RM7</option>
+        <option value="bolognese">Spaghetti Bolognese - RM14</option>
+        <option value="seafood">Marinara Seafood Pasta - RM18</option>
+        <option value="wings">BBQ Chicken Wings - RM9</option>
+        <option value="tiramisu">Tiramisu - RM6</option>
+        <option value="stir_fry">Vegetable Stir-Fry - RM11</option>
+        <option value="cheeseburger">Cheeseburger - RM13</option>
+        <option value="greek">Greek Salad - RM8</option>
+    </select>
+    <select name="food_item">
+        <option value="">Select Menu Item</option>
+        <option value="margherita">Margherita Pizza - RM12</option>
+        <option value="carbonara">Pasta Carbonara - RM15</option>
+        <option value="caesar">Caesar Salad - RM10</option>
+        <option value="chocolate_cake">Chocolate Cake - RM7</option>
+        <option value="bolognese">Spaghetti Bolognese - RM14</option>
+        <option value="seafood">Marinara Seafood Pasta - RM18</option>
+        <option value="wings">BBQ Chicken Wings - RM9</option>
+        <option value="tiramisu">Tiramisu - RM6</option>
+        <option value="stir_fry">Vegetable Stir-Fry - RM11</option>
+        <option value="cheeseburger">Cheeseburger - RM13</option>
+        <option value="greek">Greek Salad - RM8</option>
+    </select>
+    <input type="text" name="total_price" placeholder="Total Price (e.g., RM10.00)" required>
+
+    <input type="address" name="address" placeholder="Your Address" required>
+    <textarea name="instructions" placeholder="Additional Instructions (optional)" rows="4"></textarea>
+
+    <!-- Hidden input fields to specify the sender's name and email -->
+    <input type="hidden" name="_replyto" value="awesomekebabomrestaurant@gmail.com">
+    <input type="hidden" name="_subject" value="New Food Order from Customer">
+    <input type="hidden" name="_from" value="Amazing Kebabom Restaurant <awesomekebabomrestaurant@gmail.com>">
+
+    <button type="submit">Place Order</button>
+</form>
+
+    </section>
+
+    <section id="order">
+       <h2>Order Your Drinks</h2>
+<form action="https://formspree.io/f/mldeegda" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+
+    <select name="item1" required>
+        <option value="">Select Menu Item</option>
+        <option value="Coca Cola - RM3">Coca Cola - RM3</option>
+        <option value="Fresh Orange Juice - RM5">Fresh Orange Juice - RM5</option>
+        <option value="Lemonade - RM3">Lemonade - RM3</option>
+        <option value="Latte - RM4">Latte - RM4</option>
+        <option value="Hot Chocolate - RM4">Hot Chocolate - RM4</option>
+        <option value="Iced Tea - RM3">Iced Tea - RM3</option>
+        <option value="Peach Iced Tea - RM4">Peach Iced Tea - RM4</option>
+        <option value="Mango Smoothie - RM6">Mango Smoothie - RM6</option>
+        <option value="Strawberry Milkshake - RM5">Strawberry Milkshake - RM5</option>
+        <option value="Mineral Water - RM2">Mineral Water - RM2</option>
+        <option value="Mint Mojito - RM6">Mint Mojito - RM6</option>
+        <option value="Fruit Punch - RM5">Fruit Punch - RM5</option>
+    </select>
+
+    <select name="item2">
+        <option value="">Select Menu Item</option>
+        <option value="Coca Cola - RM3">Coca Cola - RM3</option>
+        <option value="Fresh Orange Juice - RM5">Fresh Orange Juice - RM5</option>
+        <option value="Lemonade - RM3">Lemonade - RM3</option>
+        <option value="Latte - RM4">Latte - RM4</option>
+        <option value="Hot Chocolate - RM4">Hot Chocolate - RM4</option>
+        <option value="Iced Tea - RM3">Iced Tea - RM3</option>
+        <option value="Peach Iced Tea - RM4">Peach Iced Tea - RM4</option>
+        <option value="Mango Smoothie - RM6">Mango Smoothie - RM6</option>
+        <option value="Strawberry Milkshake - RM5">Strawberry Milkshake - RM5</option>
+        <option value="Mineral Water - RM2">Mineral Water - RM2</option>
+        <option value="Mint Mojito - RM6">Mint Mojito - RM6</option>
+        <option value="Fruit Punch - RM5">Fruit Punch - RM5</option>
+    </select>
+
+    <input type="text" name="total_price" placeholder="Total Price (e.g., RM10.00)" required>
+
+    <input type="address" name="address" placeholder="Your Address" required>
+    <textarea name="instructions" placeholder="Additional Instructions (optional)" rows="4"></textarea>
+
+    <!-- Hidden input fields to specify the sender's name and email -->
+    <input type="hidden" name="_replyto" value="awesomekebabomrestaurant@gmail.com">
+    <input type="hidden" name="_subject" value="New Drink Order from Customer">
+    <input type="hidden" name="_from" value="Amazing Kebabom Restaurant <awesomekebabomrestaurant@gmail.com>">
+
+    <button type="submit">Place Order</button>
+</form>
+
+
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Our Online Restaurant was born out of a dream, during one of the most challenging times the world has ever faced. It was a time when restaurants closed their doors, kitchens grew cold, and the aroma of freshly prepared meals faded into memory. The hustle and bustle of dining out became a distant echo as the world stood still, gripped by uncertainty.</p>
+
+        <p>But in the heart of that darkness, we saw a spark. We realized that even when we’re apart, food has the power to connect us, to bring warmth, comfort, and joy. And from that realization, this website was born—a place where we could bring the magic of restaurant dining directly to your home.</p>
+
+        <p>What started as a small passion project, run out of a humble kitchen, soon became a beacon for food lovers everywhere. We knew we had to not just serve meals, but deliver an experience—one that reminded people of the joy of a perfect dish, the excitement of discovering new flavors, and the comfort of their favorite meals, all made with love and care.</p>
+
+        <p>We faced challenges, of course. Sleepless nights sourcing the best ingredients, creating a menu that could be both timeless and innovative. But each hurdle only strengthened our resolve. Today, our Online Restaurant stands as a testament to resilience, passion, and the unwavering belief that good food can turn even the darkest moments into something beautiful.</p>
+
+        <p>And now, we invite you to join us on this journey. Whether you’re craving a quick bite or a feast fit for a celebration, we’re here to serve you, bringing you the warmth of our kitchen, no matter where you are. Welcome to our story. Welcome to our table.</p>
+    </section>
+
+   <section id="contact">
+   <h2>Contact Us</h2>
+<form action="https://formspree.io/f/xbljjlgz" method="POST">
+  
+  <input type="text" name="name" placeholder="Your Name" required>
+  
+  <input type="email" name="email" placeholder="Your Email" required>
+  
+  <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+  
+  <!-- Hidden input fields to specify additional details -->
+  <input type="hidden" name="_subject" value="New Contact Message">
+  
+  <button type="submit">Send Message</button>
+  
+</form>
+
+</section>
+
+
+
+
+
+</div>
+
+<footer>
+    <p>&copy; 2024 Awesome Kebabom Restaurant. All rights reserved.</p>
+</footer>
+
+<script>
+    document.querySelectorAll('.accordion-button').forEach(button => {
+        button.addEventListener('click', () => {
+            // Toggle the active class for the clicked button
+            button.classList.toggle('active');
+
+            // Toggle the display of the corresponding content
+            const content = button.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
+ 
